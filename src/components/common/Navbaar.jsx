@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FiMenu,
   FiX,
@@ -24,7 +25,7 @@ const Navbar = () => {
       <nav className="bg-[#4C643B] text-black sticky top-0 z-50">
         <div className="flex items-center justify-between px-6 py-4">
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Icon */}
           <FiMenu
             className="text-2xl cursor-pointer md:hidden text-[#f6f7f3]"
             onClick={() => setOpen(true)}
@@ -38,20 +39,20 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10 text-[#f6f7f3] px-10 py-3">
             {menuItems.map((item, i) => (
-              <a
+              <Link
                 key={i}
-                href="#"
+                to={`/${item.name.replace(/\s+/g, "").toLowerCase()}`}
                 className="relative text-sm font-medium tracking-wide cursor-pointer group transition duration-300 hover:scale-105"
               >
                 {item.name}
 
-                {/* Hover Underline */}
+                {/* Hover underline */}
                 <span
                   className="absolute left-0 -bottom-1 w-full h-[2px] bg-[#f6f7f3]
                   transform scale-x-0 origin-left transition-transform duration-300
                   group-hover:scale-x-100"
                 ></span>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -71,7 +72,6 @@ const Navbar = () => {
             </div>
 
           </div>
-
         </div>
       </nav>
 
@@ -88,6 +88,7 @@ const Navbar = () => {
         className={`fixed top-0 left-0 h-full w-72 bg-[#f6f7f3] z-50 shadow-lg transform transition-transform duration-300 md:hidden
         ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
+        {/* Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b">
           <h2 className="text-lg font-bold text-[#4C643B]">
             Shop<span className="text-black">Ease</span>
@@ -99,17 +100,18 @@ const Navbar = () => {
           />
         </div>
 
+        {/* Menu */}
         <div className="flex flex-col mt-4 gap-2 px-3">
           {menuItems.map((item, i) => (
-            <a
+            <Link
               key={i}
-              href="#"
+              to={`/${item.name.replace(/\s+/g, "").toLowerCase()}`}
               onClick={() => setOpen(false)}
               className="flex items-center gap-3 px-3 py-3 rounded-lg text-[#4C643B] 
               hover:bg-[#4C643B]/10 transition"
             >
               <span className="text-sm font-medium">{item.name}</span>
-            </a>
+            </Link>
           ))}
         </div>
 

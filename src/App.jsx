@@ -2,13 +2,17 @@ import React from "react";
 import Navbaar from "./components/common/Navbaar";
 import Footer from "./components/common/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Navbar from "./components/dashboard/common/Navbar";
+
+import DashboardNavbar from "./components/dashboard/common/Navbar";
 import Sidebaar from "./components/dashboard/common/Sidebaar";
+
 import Overview from "./pages/dashboard/Overview";
 import AllUsers from "./pages/dashboard/AllUsers";
 
+/* ---------------- MAIN LAYOUT ---------------- */
 const MainLayout = () => {
   return (
     <div>
@@ -19,21 +23,28 @@ const MainLayout = () => {
   );
 };
 
+/* ---------------- DASHBOARD LAYOUT ---------------- */
 const DashboardLayout = () => {
   return (
-    <>
-      <Navbar />
-      <Outlet />
+    <div className="flex">
+      {/* Sidebar fixed left */}
       <Sidebaar />
-    </>
+
+      <div className="flex-1">
+        <DashboardNavbar />
+        <Outlet />
+      </div>
+    </div>
   );
 };
 
+/* ---------------- ROUTER ---------------- */
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
     children: [
-      { path: "/", element: <Home /> },
+      { path: "/", element: <Home /> },   // ✅ default route fix
+      { path: "/home", element: <Home /> },
       { path: "/about", element: <About /> },
     ],
   },

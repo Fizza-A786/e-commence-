@@ -70,7 +70,7 @@ const Categories = () => {
                   {product.name}
                 </h2>
                 <button className="bg-[#4C643B] hover:bg-[#3a4f2b] cursor-pointer text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Order Now
+                  Shop Now
                 </button>
               </div>
             </div>

@@ -11,6 +11,8 @@ import Sidebaar from "./components/dashboard/common/Sidebaar";
 
 import Overview from "./pages/dashboard/Overview";
 import AllUsers from "./pages/dashboard/AllUsers";
+import ProductPage from "./pages/ProductPage";
+import ServicesPage from "./pages/ServicesPage";
 
 /* ---------------- MAIN LAYOUT ---------------- */
 const MainLayout = () => {
@@ -22,12 +24,9 @@ const MainLayout = () => {
     </div>
   );
 };
-
-/* ---------------- DASHBOARD LAYOUT ---------------- */
 const DashboardLayout = () => {
   return (
     <div className="flex">
-      {/* Sidebar fixed left */}
       <Sidebaar />
 
       <div className="flex-1">
@@ -38,7 +37,6 @@ const DashboardLayout = () => {
   );
 };
 
-/* ---------------- ROUTER ---------------- */
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
@@ -46,6 +44,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },   // ✅ default route fix
       { path: "/home", element: <Home /> },
       { path: "/about", element: <About /> },
+      {path:"/products" , element: <ProductPage/>},
+      {path:"/Services" , element: <ServicesPage/>}
     ],
   },
   {

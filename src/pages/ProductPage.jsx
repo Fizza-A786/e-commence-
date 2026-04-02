@@ -1,4 +1,5 @@
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/Features/CartSlice";
 
 const products = [
   {
@@ -52,6 +53,7 @@ const products = [
 ];
 
 export default function ProductPage() {
+ const dispatch = useDispatch();
   return (
     <div className="min-h-screen bg-[#f8f9f7] px-4 py-10">
 
@@ -93,7 +95,9 @@ export default function ProductPage() {
               <p className="text-[#4C643B] font-semibold">{item.price}</p>
 
               {/* Add to Cart */}
-              <button className="mt-2 w-full bg-[#4C643B] text-white py-2 rounded-xl hover:opacity-90 transition">
+              <button 
+                onClick={() => dispatch(addToCart(item))}
+               className="mt-2 w-full bg-[#4C643B] text-white py-2 rounded-xl hover:opacity-90 transition">
                 Add to Cart
               </button>
             </div>

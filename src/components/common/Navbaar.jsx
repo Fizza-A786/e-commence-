@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FiMenu,
   FiX,
@@ -7,22 +7,29 @@ import {
   FiShoppingCart,
   FiSearch,
 } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  // ✅ Redux Cart Data
+  const cartItems = useSelector((state) => state.cart.items);
+
+  const navigate = useNavigate();
+
+  // ✅ Menu Items
   const menuItems = [
-    { name: "Home" },
-    { name: "About" },
-    { name: "Products" },
-    { name: "Services" },
-    { name: "Contact Us" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Products", path: "/products" },
+    { name: "Services", path: "/services" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   return (
     <>
       {/* NAVBAR */}
-      <nav className="bg-[#4C643B] text-black sticky top-0 z-50">
+      <nav className="bg-[#4C643B] sticky top-0 z-50">
         <div className="flex items-center justify-between px-6 py-4">
 
           {/* Mobile Menu Icon */}
@@ -32,42 +39,41 @@ const Navbar = () => {
           />
 
           {/* Logo */}
-          <h2 className="text-lg font-bold text-[#f6f7f3] logo-font">
+          <h2 className="text-lg font-bold text-[#f6f7f3]">
             Shop<span className="text-black">Ease</span>
           </h2>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-10 text-[#f6f7f3] px-10 py-3">
+          <div className="hidden md:flex items-center gap-10 text-[#f6f7f3]">
             {menuItems.map((item, i) => (
               <Link
                 key={i}
-                to={`/${item.name.replace(/\s+/g, "").toLowerCase()}`}
-                className="relative text-sm font-medium tracking-wide cursor-pointer group transition duration-300 hover:scale-105"
+                to={item.path}
+                className="relative text-sm font-medium group hover:scale-105 transition"
               >
                 {item.name}
 
-                {/* Hover underline */}
-                <span
-                  className="absolute left-0 -bottom-1 w-full h-[2px] bg-[#f6f7f3]
-                  transform scale-x-0 origin-left transition-transform duration-300
-                  group-hover:scale-x-100"
-                ></span>
+                <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition"></span>
               </Link>
             ))}
           </div>
 
-          {/* Right Icons */}
+          {/* Icons */}
           <div className="flex items-center gap-5 text-[#f6f7f3]">
 
             <FiSearch className="text-xl cursor-pointer hover:scale-110 transition" />
 
             <FiUser className="text-xl cursor-pointer hover:scale-110 transition" />
 
-            {/* Cart */}
-            <div className="relative">
-              <FiShoppingCart className="text-xl cursor-pointer hover:scale-110 transition" />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-[#f6f7f3] text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                7
+            {/* 🛒 Cart */}
+            <div
+              className="relative cursor-pointer"
+              onClick={() => navigate("/cart")}
+            >
+              <FiShoppingCart className="text-xl hover:scale-110 transition" />
+
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {cartItems.length}
               </span>
             </div>
 
@@ -105,17 +111,16 @@ const Navbar = () => {
           {menuItems.map((item, i) => (
             <Link
               key={i}
-              to={`/${item.name.replace(/\s+/g, "").toLowerCase()}`}
+              to={item.path}
               onClick={() => setOpen(false)}
-              className="flex items-center gap-3 px-3 py-3 rounded-lg text-[#4C643B] 
-              hover:bg-[#4C643B]/10 transition"
+              className="px-3 py-3 rounded-lg text-[#4C643B] hover:bg-[#4C643B]/10 transition"
             >
-              <span className="text-sm font-medium">{item.name}</span>
+              {item.name}
             </Link>
           ))}
         </div>
 
-        {/* Profile Section */}
+        {/* Profile */}
         <div className="absolute bottom-6 left-0 w-full px-4">
           <div className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100 transition cursor-pointer">
             <FiUser className="text-3xl text-[#4C643B]" />

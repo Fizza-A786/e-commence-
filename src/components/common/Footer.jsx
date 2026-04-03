@@ -1,78 +1,112 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FiMail, FiPhone } from "react-icons/fi";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
-  return (
-    <footer className="bg-[#4C643B] text-white pt-16 pb-8 relative">
-      <div className="max-w-6xl mx-auto px-2 grid grid-cols-1 md:grid-cols-4 gap-8">
+  const menuItems = ["Home", "About", "Products", "Services", "Contact Us"];
+  const supportLinks = ["FAQs", "Shipping", "Returns", "Privacy Policy"];
 
-        {/* About / Logo */}
+  return (
+    <footer className="bg-[#4C643B] text-[#f6f7f3]">
+
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+        {/* Logo + About */}
         <div>
-          <h2 className="text-2xl font-bold mb-4">Glow & Shine</h2>
-          <p className="text-gray-200 text-sm leading-relaxed">
-            Premium skincare products to make your skin glow naturally. Shop the best products online with safe, high-quality formulas.
+          <h2 className="text-lg font-bold mb-2">
+            Shop<span className="text-black">Ease</span>
+          </h2>
+          <p className="text-sm text-gray-200 leading-relaxed mb-3">
+            Your trusted online store for quality products. We provide the best shopping experience with secure payments and fast delivery.
           </p>
+
+          {/* Contact */}
+          <div className="text-sm text-gray-200 space-y-1">
+            <p className="flex items-center gap-2 hover:text-yellow-400 hover:translate-x-1.5 duration-300 transition-all">
+              <FiMail /> support@shopease.com
+            </p>
+            <p className="flex  hover:text-yellow-400 hover:translate-x-1.5 duration-300 transition-all items-center gap-2">
+              <FiPhone /> +92 300 1234567
+            </p>
+          </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-gray-200 ">
-            {["Home", "About", "Products", "Services", "Contact us"].map((link, index) => (
-              <li
-                key={index}
-                className="cursor-pointer relative group hover:translate-x-2 hover: transition-all duration-300 hover:text-yellow-400"
+          <h3 className="text-sm font-bold mb-3 uppercase tracking-wide">
+            Quick Links
+          </h3>
+          <div className="flex flex-col gap-2">
+            {menuItems.map((item, i) => (
+              <Link
+                key={i}
+                to={`/${item.toLowerCase().replace(/\s/g, "")}`}
+                className="text-sm text-gray-200 hover:text-yellow-400   hover:text-yellow-400 hover:translate-x-1.5 duration-300 transition-all"
               >
-                {link}
-             
-              </li>
+                {item}
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
 
-        {/* Contact Info */}
+        {/* Customer Care */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-          <p className="text-gray-200 mb-2">Email: <span className="hover:text-yellow-400 transition cursor-pointer">support@glowshine.com</span></p>
-          <p className="text-gray-200 mb-2">Phone: <span className="hover:text-yellow-400 transition cursor-pointer">+92 300 1234567</span></p>
-          <p className="text-gray-200">Address: Karachi, Pakistan</p>
+          <h3 className="text-sm font-bold mb-3 uppercase tracking-wide">
+            Customer Care
+          </h3>
+          <div className="flex flex-col gap-2">
+            {supportLinks.map((item, i) => (
+              <Link
+                key={i}
+                to="/"
+                className="text-sm  hover:text-yellow-400 hover:translate-x-1.5 duration-300 transition-all text-gray-200 hover:text-yellow-400 "
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Social + Newsletter */}
         <div>
-          <h3 className="text-xl font-semibold mb-4">Follow & Subscribe</h3>
-          
+          <h3 className="text-sm font-bold mb-3 uppercase tracking-wide">
+            Stay Connected
+          </h3>
+
           {/* Social Icons */}
-          <div className="flex space-x-4 mb-4">
-            {[FaFacebookF, FaInstagram, FaTwitter, FaYoutube].map((Icon, i) => (
-              <Icon
-                key={i}
-                className="text-white w-6 h-6 cursor-pointer transition-transform transform hover:scale-125 hover:text-yellow-400"
-              />
-            ))}
-          </div>
+       <div className="flex gap-4 mb-4">
+  {[FaFacebookF, FaInstagram, FaTwitter, FaYoutube].map((Icon, i) => (
+    <div
+      key={i}
+      className="w-9 h-9 flex  items-center justify-center rounded-full bg-white/10 backdrop-blur-sm cursor-pointer transition hover:scale-115 hover:bg-yellow-400"
+    >
+      <Icon className="w-4 h-4 text-white hover:text-black" />
+    </div>
+  ))}
+</div>
 
           {/* Newsletter */}
-         {/* Newsletter with button inside input */}
-<div className="relative w-full max-w-sm mx-auto">
-  <input
-    type="email"
-    placeholder="Your email"
-    className="w-full px-4 py-2 pr-32 rounded-full text-black outline-none focus:ring-2 focus:ring-yellow-400"
-  />
-  <button
-    className="absolute top-1/2 right-1 transform -translate-y-1/2 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 rounded-full font-semibold hover:from-yellow-500 hover:to-yellow-600 transition-transform transform hover:scale-105"
-  >
-    Subscribe
-  </button>
-</div>
+          <div className="relative w-full max-w-xs">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full px-2 py-2 pr-24 rounded-full text-black text-sm outline-none border border-gray-300"
+            />
+            <button className="absolute top-1/2 right-1 -translate-y-1/2 bg-yellow-400 text-black px-3 py-2 rounded-full text-xs font-semibold hover:scale-105 transition">
+              Subscribe
+            </button>
+          </div>
         </div>
+
       </div>
 
-      {/* Bottom Copyright */}
-      <div className="mt-12 border-t border-gray-300 pt-4 text-center text-gray-200 text-sm">
+      {/* Bottom Bar */}
+      <div className="border-t border-white/30 py-4 px-6 text-center text-sm text-gray-200">
         &copy; {new Date().getFullYear()} ShopEase. All rights reserved.
       </div>
+
     </footer>
   );
 };

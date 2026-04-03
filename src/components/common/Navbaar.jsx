@@ -30,7 +30,7 @@ const Navbar = () => {
     <>
       {/* NAVBAR */}
       <nav className="bg-[#4C643B] sticky top-0 z-50">
-        <div className="flex items-center justify-between px-6 py-4">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
           {/* Mobile Menu Icon */}
           <FiMenu

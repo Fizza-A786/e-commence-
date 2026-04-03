@@ -3,8 +3,8 @@ import bg from "../../assets/bg.png";
 
 const DiscountBanner = () => {
   return (
-    <div className="max-w-6xl mx-auto py-6 px-4">
-      <div className="bg-[#4C643B] rounded-xl flex flex-col md:flex-row flex-wrap items-center justify-between px-6 py-6 md:py-8 text-white">
+    <div  className="max-w-6xl mx-auto py-6 px-4">
+      <div data-aos="fade-up" className="bg-[#4C643B] rounded-xl flex flex-col md:flex-row flex-wrap items-center justify-between px-6 py-6 md:py-8 text-white">
 
         {/* Left Content */}
         <div className="w-full md:w-1/3 text-center md:text-left mb-4 md:mb-0">

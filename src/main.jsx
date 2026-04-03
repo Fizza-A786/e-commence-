@@ -3,11 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { Provider } from 'react-redux'
-import { Store } from './Redux/Store';
-
+import { store } from './Redux/Store';
+import "aos/dist/aos.css";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider store={Store}>
+    <Provider store={store}>
        <App />
     </Provider>
    

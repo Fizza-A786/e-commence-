@@ -65,11 +65,12 @@ const ReviewProducts = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <div
+          
             key={product.id}
-            className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center text-center transition-transform transform hover:scale-105 relative group overflow-hidden"
+            className="bg-white rounded-xl shadow-md p-4 duration-300 flex flex-col items-center text-center transition-transform transform hover:scale-105 relative group overflow-hidden"
           >
             {/* Image Container with hover fade */}
-            <div className="relative w-48 h-48 mb-4">
+            <div className="relative w-48 h-48 mb-4 " >
               <img
                 src={product.img1}
                 alt={product.title}

@@ -8,8 +8,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./swiper-custom.css";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+const navigate =  useNavigate()
 
   const slides = [
     {
@@ -77,6 +79,7 @@ const Hero = () => {
 
                 {/* ✅ FIXED BUTTON */}
                 <button
+                onClick={() => navigate("/products")}
                   className="bg-[#4C643B] hover:bg-[#3a4f2b] cursor-pointer text-white px-6 py-3 rounded-4xl text-[15px] font-medium transition duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   {slide.buttonText}

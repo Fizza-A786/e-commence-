@@ -34,14 +34,14 @@ export default function AboutPage() {
         </div>
 
         <div className="space-y-5">
-          <h2 className="text-2xl font-semibold text-[#4C643B]">
+          <h2 className="text-2xl font-bold text-[#4C643B]">
             Who We Are
           </h2>
           <p className="text-gray-600">
             We are a modern e-commerce platform providing a seamless shopping experience.
           </p>
 
-          <h2 className="text-2xl font-semibold text-[#4C643B]">
+          <h2 className="text-2xl font-bold text-[#4C643B]">
             Our Mission
           </h2>
           <p className="text-gray-600">

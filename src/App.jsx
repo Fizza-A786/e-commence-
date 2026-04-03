@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react"; // ✅ FIX: useEffect import
 import Navbaar from "./components/common/Navbaar";
 import Footer from "./components/common/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
-import ProductPage from "./pages/ProductPage";
+import ProductPage from "./components/ProductPage/ProductPage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactPage from "./pages/ContactPage";
 
@@ -17,12 +17,24 @@ import AllUsers from "./pages/dashboard/AllUsers";
 import CartPage from "./Redux/Features/CartPage";
 import ScrollToTop from "./ScrollToTop";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Products from "./pages/Products";
+
 /* ---------------- MAIN LAYOUT ---------------- */
 const MainLayout = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
+
   return (
     <div>
       <Navbaar />
-      <ScrollToTop/>
+      <ScrollToTop />
       <Outlet />
       <Footer />
     </div>
@@ -51,10 +63,10 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/home", element: <Home /> },
       { path: "/about", element: <About /> },
-      { path: "/products", element: <ProductPage /> },
-      { path: "/services", element: <ServicesPage /> }, // ✅ fixed
-      { path: "/contact", element: <ContactPage /> }, 
-      {path :"/cart", element:<CartPage/>}  // ✅ fixed
+      { path: "/products", element: <Products/> },
+      { path: "/services", element: <ServicesPage /> },
+      { path: "/contact", element: <ContactPage /> },
+      { path: "/cart", element: <CartPage /> },
     ],
   },
   {

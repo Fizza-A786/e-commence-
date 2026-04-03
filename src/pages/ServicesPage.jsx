@@ -47,10 +47,10 @@ export default function ServicesPage() {
         </p>
       </div>
 
-      {/* ⭐ IMPROVED SERVICES CARDS */}
+      {/* ⭐ PREMIUM SERVICES CARDS */}
       <div className="max-w-6xl mx-auto mt-12 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-        {[ 
+        {[
           {
             icon: <FaShippingFast />,
             title: "Fast Delivery",
@@ -74,31 +74,34 @@ export default function ServicesPage() {
         ].map((item, index) => (
           <div
             key={index}
-            className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-2xl transition duration-300 text-center relative overflow-hidden"
+            className="group relative bg-white/70 backdrop-blur-md p-6 rounded-3xl shadow-md hover:shadow-2xl transition duration-500 text-center overflow-hidden border border-gray-100 hover:-translate-y-3 hover:scale-[1.03]"
           >
-            {/* Hover Effect Background */}
-            <div className="absolute inset-0 bg-[#4C643B] opacity-0 group-hover:opacity-10 transition"></div>
+            {/* Glow Effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#4C643B]/20 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition"></div>
 
             {/* Icon */}
-            <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#4C643B]/10 text-[#4C643B] text-2xl group-hover:bg-[#4C643B] group-hover:text-white transition">
+            <div className="relative w-16 h-16 mx-auto flex items-center justify-center rounded-2xl bg-[#4C643B]/10 text-[#4C643B] text-2xl group-hover:bg-[#4C643B] group-hover:text-white transition duration-300 shadow-inner">
               {item.icon}
             </div>
 
             {/* Title */}
-            <h3 className="mt-5 text-lg font-semibold text-[#4C643B]">
+            <h3 className="mt-5 text-lg font-semibold text-gray-800 group-hover:text-[#4C643B] transition">
               {item.title}
             </h3>
 
             {/* Description */}
-            <p className="text-gray-500 mt-2 text-sm">
+            <p className="text-gray-500 mt-2 text-sm leading-relaxed">
               {item.desc}
             </p>
+
+            {/* Bottom line */}
+            <div className="mt-4 h-[2px] w-0 bg-[#4C643B] mx-auto group-hover:w-12 transition-all duration-300"></div>
           </div>
         ))}
 
       </div>
 
-      {/* ⭐ HOW IT WORKS */}
+      {/* ⭐ HOW IT WORKS (IMPROVED) */}
       <div className="max-w-6xl mx-auto mt-20 px-4">
         <h2 className="text-3xl font-bold text-center text-[#4C643B] mb-12">
           How It Works
@@ -114,9 +117,9 @@ export default function ServicesPage() {
           ].map((step, i) => (
             <div
               key={i}
-              className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition"
+              className="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300"
             >
-              <div className="w-12 h-12 mx-auto flex items-center justify-center rounded-full bg-[#4C643B] text-white font-bold">
+              <div className="w-12 h-12 mx-auto flex items-center justify-center rounded-full bg-[#4C643B] text-white font-bold group-hover:scale-110 transition">
                 {i + 1}
               </div>
 

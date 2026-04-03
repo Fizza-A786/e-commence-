@@ -4,6 +4,7 @@ import Logoswiper from '../components/HomePages/Logoswiper'
 import Categories from '../components/HomePages/Categories'
 import DiscountBanner from '../components/HomePages/DiscountBanner'
 import ReviewProducts from '../components/HomePages/ReviewProducts'
+import AboutPage from '../components/HomePages/AboutPage'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       < Hero/>
       <Logoswiper/>
       <Categories/>
+      <AboutPage/>
       <DiscountBanner/>
       <ReviewProducts/>
       

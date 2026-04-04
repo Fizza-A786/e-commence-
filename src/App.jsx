@@ -20,6 +20,7 @@ import ScrollToTop from "./ScrollToTop";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Products from "./pages/Products";
+import CheckOut from "./Redux/Features/CheckOut";
 
 /* ---------------- MAIN LAYOUT ---------------- */
 const MainLayout = () => {
@@ -67,6 +68,8 @@ const router = createBrowserRouter([
       { path: "/services", element: <ServicesPage /> },
       { path: "/contact", element: <ContactPage /> },
       { path: "/cart", element: <CartPage /> },
+      { path: "/CheckOut", element: <CheckOut/> },
+
     ],
   },
   {

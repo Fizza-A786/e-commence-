@@ -1,0 +1,68 @@
+const products = [
+  {
+    id: 1,
+    name: "Moisturizer Cream",
+    price: "$25",
+    category: "skincare",
+    description: "Deeply hydrates and nourishes your skin for a soft glow.",
+    image: "https://i.pinimg.com/736x/62/67/5e/62675e76a1296b2eb9ff43c02c5448c4.jpg",
+  },
+  {
+    id: 2,
+    name: "Soft Face Cream",
+    price: "$45",
+    category: "skincare",
+    description: "Lightweight cream for smooth and radiant skin.",
+    image: "https://i.pinimg.com/736x/ab/2c/9a/ab2c9a89fe4aa3ed7ff2a9a019aeca40.jpg",
+  },
+  {
+    id: 3,
+    name: "Skincare Serum",
+    price: "$60",
+    category: "skincare",
+    description: "Boosts glow and improves skin texture instantly.",
+    image: "https://i.pinimg.com/736x/00/22/cf/0022cfee699737f201fffb0ee76a2fa1.jpg",
+  },
+  {
+    id: 4,
+    name: "Lotion",
+    price: "$35",
+    category: "skincare",
+    description: "Keeps your skin soft, hydrated, and refreshed all day.",
+    image: "https://i.pinimg.com/736x/22/dd/10/22dd1062d20fd226138c5eaac8888fe0.jpg",
+  },
+  {
+    id: 5,
+    name: "Soft Moisturizer Lotion",
+    price: "$50",
+    category: "skincare",
+    description: "Gentle formula perfect for daily skincare routine.",
+    image: "https://i.pinimg.com/736x/d9/e2/d3/d9e2d3fe514c4561d257c78ba1bd022c.jpg",
+  },
+  {
+    id: 6,
+    name: "Minimalist Serum",
+    price: "$40",
+    category: "skincare",
+    description: "Clean and effective serum for healthy glowing skin.",
+    image: "https://i.pinimg.com/736x/d7/87/1c/d7871c373598355c78c90425cc548a13.jpg",
+  },
+  {
+    id: 7,
+    name: "Moisturizing Cream",
+    price: "$70",
+    category: "skincare",
+    description: "Rich formula that deeply nourishes dry skin.",
+    image: "https://i.pinimg.com/736x/81/e1/f1/81e1f182dab05a2468070fc2f223c072.jpg",
+  },
+  {
+    id: 8,
+    name: "Soft Lip Gloss",
+    price: "$55",
+    category: "beauty",
+    description: "Adds shine and softness to your lips instantly.",
+    image: "https://i.pinimg.com/1200x/88/e2/52/88e252390f107593a39be569d61b2392.jpg",
+  },
+];
+
+export default products;

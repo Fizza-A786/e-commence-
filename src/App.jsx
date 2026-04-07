@@ -21,6 +21,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Products from "./pages/Products";
 import CheckOut from "./Redux/Features/CheckOut";
+import ProductDetail from "./components/ProductPage/ProductDetail";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 
 /* ---------------- MAIN LAYOUT ---------------- */
 const MainLayout = () => {
@@ -69,6 +73,10 @@ const router = createBrowserRouter([
       { path: "/contact", element: <ContactPage /> },
       { path: "/cart", element: <CartPage /> },
       { path: "/CheckOut", element: <CheckOut/> },
+      { path: "/product/:id", element: <ProductDetail/>},
+        { path: "/login", element: <Login/>},
+      { path: "/signup", element: <Signup/>},
+    
 
     ],
   },

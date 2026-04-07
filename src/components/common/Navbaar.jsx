@@ -11,13 +11,9 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  // ✅ Redux Cart Data
   const cartItems = useSelector((state) => state.cart.items);
 
   const navigate = useNavigate();
-
-  // ✅ Menu Items
   const menuItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -30,7 +26,7 @@ const Navbar = () => {
     <>
       {/* NAVBAR */}
       <nav className="bg-[#4C643B] sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-7 flex items-center justify-between">
 
           {/* Mobile Menu Icon */}
           <FiMenu
@@ -61,9 +57,7 @@ const Navbar = () => {
           {/* Icons */}
           <div className="flex items-center gap-5 text-[#f6f7f3]">
 
-            <FiSearch className="text-xl cursor-pointer hover:scale-110 transition" />
-
-            <FiUser className="text-xl cursor-pointer hover:scale-110 transition" />
+            <FiUser   onClick={() => navigate("/signup")} className="text-xl cursor-pointer hover:scale-110 transition" />
 
             {/* 🛒 Cart */}
             <div
@@ -123,7 +117,7 @@ const Navbar = () => {
         {/* Profile */}
         <div className="absolute bottom-6 left-0 w-full px-4">
           <div className="flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100 transition cursor-pointer">
-            <FiUser className="text-3xl text-[#4C643B]" />
+            <FiUser   onClick={() => navigate("/signup")}  className="text-3xl text-[#4C643B]" />
             <div>
               <p className="text-sm font-semibold">My Profile</p>
               <p className="text-xs text-gray-500">View account</p>

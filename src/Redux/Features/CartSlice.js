@@ -8,13 +8,11 @@ const CartSlice = createSlice({
 
   reducers: {
 
-    // ✅ ADD TO CART (FULL FIX)
     addToCart: (state, action) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       );
 
-      // 🔥 price clean (string "$45" → number 45)
       const cleanPrice = parseFloat(
         action.payload.price.toString().replace("$", "")
       );
@@ -24,20 +22,18 @@ const CartSlice = createSlice({
       } else {
         state.items.push({
           ...action.payload,
-          price: cleanPrice,   // ✅ FIXED
-          quantity: 1,         // ✅ MUST
+          price: cleanPrice,
+          quantity: 1,
         });
       }
     },
 
-    // ❌ REMOVE
     removeFromCart: (state, action) => {
       state.items = state.items.filter(
         (item) => item.id !== action.payload
       );
     },
 
-    // ➕ INCREASE
     increaseQty: (state, action) => {
       const item = state.items.find(
         (item) => item.id === action.payload
@@ -45,7 +41,6 @@ const CartSlice = createSlice({
       if (item) item.quantity += 1;
     },
 
-    // ➖ DECREASE
     decreaseQty: (state, action) => {
       const item = state.items.find(
         (item) => item.id === action.payload
@@ -55,7 +50,6 @@ const CartSlice = createSlice({
       }
     },
 
-    // ✏️ EDIT (SAFE)
     updateItem: (state, action) => {
       const { id, name, price, image } = action.payload;
 
@@ -64,11 +58,10 @@ const CartSlice = createSlice({
       if (item) {
         item.name = name;
         item.price = parseFloat(price);
-         item.image = image; // ✅ FIX
+        item.image = image;
       }
     },
 
-    // 🔥 AUTO FIX OLD DATA (IMPORTANT)
     fixCartData: (state) => {
       state.items = state.items.map((item) => ({
         ...item,
@@ -77,10 +70,12 @@ const CartSlice = createSlice({
       }));
     },
 
+    // ✅ FIXED (NOW INSIDE reducers)
+    clearCart: (state) => {
+      state.items = [];
+    },
+
   },
-   clearCart: (state) => {
-  state.items = [];
-}
 });
 
 export const {
@@ -90,7 +85,7 @@ export const {
   decreaseQty,
   updateItem,
   fixCartData,
-clearCart
+  clearCart
 } = CartSlice.actions;
 
 export default CartSlice.reducer;
